@@ -1,0 +1,2 @@
+C:\Users\Nik\source\repos\Text Editor\Debug\Text Editor.exe
+C:\Users\Nik\source\repos\Text Editor\Debug\Text Editor.pdb

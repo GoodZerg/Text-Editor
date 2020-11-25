@@ -3,6 +3,7 @@
 Widget::Widget(std::vector<WidgetComponent*> components)
 {
   this->components = components;
+
 }
 
 void Widget::render()

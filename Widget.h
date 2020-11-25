@@ -10,5 +10,5 @@ public:
 private:
   std::vector<WidgetComponent*> components = {};
   GLFWwindow* window = nullptr;
-};
+};  
 

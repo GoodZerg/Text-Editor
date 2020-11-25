@@ -148,16 +148,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ClikedInterface.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RenderInterface.cpp" />
+    <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="TextField.cpp" />
     <ClCompile Include="Widget.cpp" />
     <ClCompile Include="WidgetComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="ClikedInterface.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="RenderInterface.h" />
+    <ClInclude Include="TextBox.h" />
     <ClInclude Include="TextField.h" />
     <ClInclude Include="Widget.h" />
     <ClInclude Include="WidgetComponent.h" />

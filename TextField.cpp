@@ -8,5 +8,5 @@ TextField::TextField(vec2<int> pos, vec2<int> size, std::string& str, WidgetComp
 
 void TextField::render()
 {
-  
+
 }

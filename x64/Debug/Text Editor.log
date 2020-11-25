@@ -1,3 +1,6 @@
-﻿  glad.c
-LINK : warning LNK4098: библиотека по умолчанию "MSVCRT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
+﻿  Main.cpp
+  TextField.cpp
+  Widget.cpp
+  WidgetComponent.cpp
+  Создание кода...
   Text Editor.vcxproj -> C:\Users\Nik\source\repos\Text Editor\x64\Debug\Text Editor.exe

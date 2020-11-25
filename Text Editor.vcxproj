@@ -150,6 +150,17 @@
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RenderInterface.cpp" />
+    <ClCompile Include="TextField.cpp" />
+    <ClCompile Include="Widget.cpp" />
+    <ClCompile Include="WidgetComponent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header.h" />
+    <ClInclude Include="RenderInterface.h" />
+    <ClInclude Include="TextField.h" />
+    <ClInclude Include="Widget.h" />
+    <ClInclude Include="WidgetComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

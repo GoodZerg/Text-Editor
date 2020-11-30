@@ -4,11 +4,22 @@ class WidgetComponent :
   public RenderInterface
 {
 public:
-  WidgetComponent(vec2<int> pos, vec2<int> size, WidgetComponent* Decorator = nullptr);
+  WidgetComponent(vec2<float> pos, vec2<float> size, WidgetComponent* Decorator = nullptr);
   void render() override;
 private:
-  vec2<int> pos;
-  vec2<int> size;
-  WidgetComponent* Decorator = nullptr;
+  vec2<float> _pos;
+  vec2<float> _size;
+  WidgetComponent* _Decorator = nullptr;
+  unsigned int _VAO;
+  int __shaderProgram;
+
+
+  void _error(std::string error, char infoLog[512] = 0);
+  void _compileShaderProgram();
+  void _makeBuffers();
+
+  static const char* __vertexShaderSource;
+  static const char* __fragmentShaderSource;
+
 };
 

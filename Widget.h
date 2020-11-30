@@ -4,11 +4,13 @@
 class Widget :
   public RenderInterface {
 public:
-  Widget(std::vector<WidgetComponent*> components);
+  Widget(vec2<unsigned int> size, std::vector<WidgetComponent*> *components);
   void render() override;
-  void processInput();
 private:
-  std::vector<WidgetComponent*> components = {};
-  GLFWwindow* window = nullptr;
+  vec2<unsigned int> _size = { 800, 600 };
+  std::vector<WidgetComponent*> *_components = {};
+  GLFWwindow* _window = nullptr;
+  void _processInput();
+  void _error(std::string error);
 };  
 

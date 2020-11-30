@@ -7,8 +7,6 @@
 #include<vector>
 #include<string>
 
-constexpr int zero_int = 0;
-
 
 template <typename T>
 struct vec2 {

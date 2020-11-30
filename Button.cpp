@@ -2,10 +2,10 @@
 
 void Button::OnClicked()
 {
-  ClikedDynamic();
+  _ClikedDynamic();
 }
 
 void Button::addOnClikedDynamic(std::function<void()> function)
 {
-  this->ClikedDynamic = function;
+  this->_ClikedDynamic = function;
 }

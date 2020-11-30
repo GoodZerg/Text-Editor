@@ -8,6 +8,6 @@ public:
   void OnClicked() override;
   void addOnClikedDynamic(std::function<void()>);
 private:
-  std::function<void()> ClikedDynamic = nullptr;
+  std::function<void()> _ClikedDynamic = nullptr;
 };
 

@@ -1,2 +1,3 @@
-﻿  Main.cpp
+﻿  WidgetComponent.cpp
+C:\Users\Nik\source\repos\Text Editor\WidgetComponent.cpp(74,19): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
   Text Editor.vcxproj -> C:\Users\Nik\source\repos\Text Editor\x64\Debug\Text Editor.exe

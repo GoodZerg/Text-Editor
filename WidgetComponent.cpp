@@ -78,6 +78,8 @@ void WidgetComponent::render()
   glUniform4f(vertexColorLocation, Value, 0, Value, 1.0f);
   glBindVertexArray(_VAO);
   glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+  if(_Decorator != nullptr)
+    _Decorator->render();
 }
 
 void WidgetComponent::_error(std::string error, char infoLog[512])

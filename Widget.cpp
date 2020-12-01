@@ -1,5 +1,7 @@
 #include "Widget.h"
 
+InputStruct Widget::GLBoxInput = { nullptr, 0 };
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
   glViewport(0, 0, width, height);
@@ -17,6 +19,7 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
     static_cast<Widget*>(glfwGetWindowUserPointer(window))->wclicked(button, action, mods);
   }
 }
+
 
 Widget::Widget(vec2<unsigned int> size, std::string name_window, std::vector<WidgetComponent*> *components, GLFWwindow* main_window)
 {
@@ -50,6 +53,7 @@ Widget::Widget(vec2<unsigned int> size, std::string name_window, std::vector<Wid
   glfwSetInputMode(_window, GLFW_LOCK_KEY_MODS, GLFW_TRUE);
   glfwSetMouseButtonCallback(_window, mouse_button_callback);
   glfwSetKeyCallback(_window, key_callback);
+
 }
 
 
@@ -97,4 +101,45 @@ void Widget::_error(std::string error)
 
 void Widget::wclicked(int button, int action, int mods)
 {
+
+  GLBoxInput.IsInputing = false;
+
+  double xpos, ypos;
+  glfwGetCursorPos(_window, &xpos, &ypos);
+
+  /**         normalize cursor position         **/
+  double _xpos = xpos, _ypos = ypos;
+  _xpos /= _size.x / 2;
+  _xpos -= 1;
+  _ypos /= _size.y / 2;
+  _ypos -= 1;
+  _ypos = -_ypos;
+  //std::cout << "x: " << _xpos << " y: " << _ypos << "\n";
+
+  /**         check click components             **/
+  for (size_t i = 0; i < _components->size(); i++) {
+    if (_xpos >= (*_components)[i]->_pos.x && _xpos <= (*_components)[i]->_pos.x + (*_components)[i]->_size.x &&
+        _ypos >= (*_components)[i]->_pos.y && _ypos <= (*_components)[i]->_pos.y + (*_components)[i]->_size.y) {
+      try {
+        try {
+          GLBoxInput.IsInputing = false;
+          GLBoxInput.Input = dynamic_cast<TextBox*>((*_components)[i]);
+          TextBox* tmp = dynamic_cast<TextBox*>((*_components)[i]);
+        } catch (const std::bad_cast& ee) {
+          GLBoxInput.IsInputing = false;
+          std::cout << ee.what();
+        }  
+        auto tmp = dynamic_cast<Button*>((*_components)[i]);
+        auto tmp2 = dynamic_cast<TextBox*>((*_components)[i]);
+        if (tmp !=  nullptr) {
+          tmp->OnClicked();
+        }  
+        if (tmp2 != nullptr) {
+          tmp2->OnClicked();
+        }
+      } catch (const std::bad_cast& e) {
+        std::cout << e.what();
+      }
+    }
+  }
 }

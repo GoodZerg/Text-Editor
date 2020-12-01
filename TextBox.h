@@ -8,8 +8,8 @@ class TextBox :
   public TextField, ClikedInterface
 {
 public:
+  TextBox(vec2<float> pos, vec2<float> size, std::string& str, WidgetComponent* Decorator = nullptr);
   void OnClicked() override;
-  static InputStruct GLBoxInput;
 };
 
 struct InputStruct {

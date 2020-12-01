@@ -13,11 +13,11 @@ public:
   void render() override;
   void wclicked(int button, int action, int mods);
 private:
+  static InputStruct GLBoxInput;
   std::string _name_window = "";
   vec2<unsigned int> _size = { 800, 600 };
   std::vector<WidgetComponent*> *_components = {};
   GLFWwindow* _window = nullptr;
-  //void _processInput();
   void _error(std::string error);
 };  
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "WidgetComponent.h"
-class TextField : public WidgetComponent
+class TextField : 
+   public WidgetComponent
 {
 public:
   TextField(vec2<float> pos, vec2<float> size, std::string& str, WidgetComponent* Decorator = nullptr);

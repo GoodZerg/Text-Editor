@@ -5,9 +5,9 @@ void _framebuffer_size_callback(GLFWwindow* window, int width, int height)
   glViewport(0, 0, width, height);
 }
 
-Widget::Widget(vec2<unsigned int> size, std::vector<WidgetComponent*> *ñomponents)
+Widget::Widget(vec2<unsigned int> size, std::vector<WidgetComponent*> *components)
 {
-  this->_components = ñomponents;
+  this->_components = components;
   this->_size.x = size.x;
   this->_size.y = size.y;
 

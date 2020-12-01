@@ -5,7 +5,7 @@ TextBox::TextBox(vec2<float> pos, vec2<float> size, std::string& str, WidgetComp
 {
 }
 
-void TextBox::OnClicked()
+void TextBox::OnClicked(GLFWwindow* w)
 {
   std::cout << "TextBoxCliked\n";
 }

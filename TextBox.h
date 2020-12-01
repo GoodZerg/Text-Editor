@@ -9,7 +9,7 @@ class TextBox :
 {
 public:
   TextBox(vec2<float> pos, vec2<float> size, std::string& str, WidgetComponent* Decorator = nullptr);
-  void OnClicked() override;
+  void OnClicked(GLFWwindow*) override;
 };
 
 struct InputStruct {

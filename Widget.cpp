@@ -132,10 +132,10 @@ void Widget::wclicked(int button, int action, int mods)
         auto tmp = dynamic_cast<Button*>((*_components)[i]);
         auto tmp2 = dynamic_cast<TextBox*>((*_components)[i]);
         if (tmp !=  nullptr) {
-          tmp->OnClicked();
+          tmp->OnClicked(_window);
         }  
         if (tmp2 != nullptr) {
-          tmp2->OnClicked();
+          tmp2->OnClicked(_window);
         }
       } catch (const std::bad_cast& e) {
         std::cout << e.what();

@@ -1,6 +1,7 @@
 #pragma once
+#include "RenderInterface.h"
 class ClikedInterface
 {
 public:
-  virtual void OnClicked() = 0;
+  virtual void OnClicked(GLFWwindow*) = 0;
 };

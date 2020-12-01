@@ -11,7 +11,7 @@ int main(){
   std::vector<WidgetComponent*> a;
   Widget test(size, "123", &a);
   a.push_back(new TextBox(vec1, vec3, str));
-  a.push_back(new Button(vec4, vec3, [&]() {}));
+  a.push_back(new Button(vec4, vec3, [&](GLFWwindow* w) {}));
   test.render();
   glfwTerminate();
   return 0;

@@ -8,6 +8,8 @@
 #include<string>
 #include <stdexcept>
 
+static std::vector<std::string*> main_array;
+
 
 template <typename T>
 struct vec2 {

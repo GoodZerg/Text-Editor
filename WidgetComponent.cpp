@@ -69,7 +69,7 @@ void WidgetComponent::_makeBuffers()
 }
 
 
-void WidgetComponent::render()
+void WidgetComponent::render(GLFWwindow* window)
 {
   int vertexColorLocation = glGetUniformLocation(__shaderProgram, "Color");
   glUseProgram(__shaderProgram);
@@ -77,7 +77,7 @@ void WidgetComponent::render()
   glBindVertexArray(_VAO);
   glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
   if(_Decorator != nullptr)
-    _Decorator->render();
+    _Decorator->render(window);
 }
 
 void WidgetComponent::_error(std::string error, char infoLog[512])

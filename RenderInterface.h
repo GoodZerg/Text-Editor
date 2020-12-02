@@ -4,6 +4,6 @@
 
 class RenderInterface {
 public:
-  virtual void render() = 0;
+  virtual void render(GLFWwindow* window) = 0;
 };
 

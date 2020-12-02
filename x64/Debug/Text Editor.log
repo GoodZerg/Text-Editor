@@ -1,17 +1,4 @@
-﻿  Button.cpp
-  ClikedInterface.cpp
-  Main.cpp
-  RenderInterface.cpp
-  Strings.cpp
-C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Strings.cpp(41,37): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Strings.cpp(54,33): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Strings.cpp(75,53): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Strings.cpp(98,53): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Strings.cpp(116,53): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-  TextBox.cpp
-  TextField.cpp
-  Widget.cpp
-  WidgetComponent.cpp
-  Создание кода...
-  glad.c
-LINK : fatal error LNK1104: не удается открыть файл "glfw3.lib"
+﻿  TextField.cpp
+C:\Users\Nik\source\repos\Text Editor\TextField.cpp(62,29): warning C4838: Преобразование из "FT_Pos" в "unsigned int" требует сужающего преобразования.
+C:\Users\Nik\source\repos\Text Editor\TextField.cpp(153,56): warning C4305: аргумент: усечение из "double" в "float"
+  Text Editor.vcxproj -> C:\Users\Nik\source\repos\Text Editor\x64\Debug\Text Editor.exe

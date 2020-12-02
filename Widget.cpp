@@ -59,7 +59,7 @@ Widget::Widget(vec2<unsigned int> size, std::string name_window, std::vector<Wid
 }
 
 
-void Widget::render()
+void Widget::render(GLFWwindow* window)
 {
   while (!glfwWindowShouldClose(_window))
   {
@@ -72,7 +72,7 @@ void Widget::render()
     glClear(GL_COLOR_BUFFER_BIT);
 
     for (auto& a : *_components) {
-      a->render();
+      a->render(_window);
     }
 
 
@@ -82,17 +82,10 @@ void Widget::render()
   }
 }
 
-
-/*
-void Widget::_processInput()
+vec2<unsigned int> Widget::getSize()
 {
-  if (glfwGetKey(_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-    glfwSetWindowShouldClose(_window, true);
-  if (false)
-    glfwSetWindowShouldClose(_window, true);
+  return _size;
 }
-*/
-
 
 void Widget::_error(std::string error)
 {

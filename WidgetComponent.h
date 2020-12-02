@@ -5,7 +5,7 @@ class WidgetComponent :
 {
 public:
   WidgetComponent(vec2<float> pos, vec2<float> size, WidgetComponent* Decorator = nullptr);
-  void render() override;
+  void render(GLFWwindow* window) override;
   vec2<float> _pos;
   vec2<float> _size;
   WidgetComponent* _Decorator = nullptr;

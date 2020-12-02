@@ -2,6 +2,9 @@
 #include "Widget.h"
 #include "ButtonsDynamic.h"
 
+///              KOZL UI                        ///
+
+
 int main() {
   std::string tmp = "1224";
   main_array.push_back(&tmp);

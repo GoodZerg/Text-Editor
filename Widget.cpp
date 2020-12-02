@@ -120,8 +120,8 @@ void Widget::wclicked(int button, int action, int mods)
 
   /**         check click components             **/
   for (size_t i = 0; i < _components->size(); i++) {
-    if (_xpos >= (*_components)[i]->_pos.x && _xpos <= (*_components)[i]->_pos.x + (*_components)[i]->_size.x &&
-        _ypos >= (*_components)[i]->_pos.y && _ypos <= (*_components)[i]->_pos.y + (*_components)[i]->_size.y) {
+    if (_xpos >= (*_components)[i]->_pos.x && _xpos <= static_cast<double>((*_components)[i]->_pos.x) + (*_components)[i]->_size.x &&
+        _ypos >= (*_components)[i]->_pos.y && _ypos <= static_cast<double>((*_components)[i]->_pos.y) + (*_components)[i]->_size.y) {
       try {
         try {
           GLBoxInput.IsInputing = false;

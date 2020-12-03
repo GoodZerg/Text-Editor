@@ -1,4 +1,2 @@
-﻿  TextField.cpp
-C:\Users\Nik\source\repos\Text Editor\TextField.cpp(62,29): warning C4838: Преобразование из "FT_Pos" в "unsigned int" требует сужающего преобразования.
-C:\Users\Nik\source\repos\Text Editor\TextField.cpp(153,56): warning C4305: аргумент: усечение из "double" в "float"
+﻿  Main.cpp
   Text Editor.vcxproj -> C:\Users\Nik\source\repos\Text Editor\x64\Debug\Text Editor.exe

@@ -215,5 +215,3 @@ void FuncTen(GLFWwindow* window) {
   strings.erase(strings.end() - 1);
   func::RemoveDigitsWithIncreasingValues(start, stop);
 }
-
-

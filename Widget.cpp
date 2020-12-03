@@ -130,6 +130,8 @@ void Widget::wclicked(int button, int action, int mods)
           tmp->OnClicked(_window);
         }  
         if (tmp2 != nullptr) {
+          GLBoxInput.Input = tmp2;
+          GLBoxInput.IsInputing = true;
           tmp2->OnClicked(_window);
         }
       } catch (const std::bad_cast& e) {

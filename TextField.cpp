@@ -158,7 +158,6 @@ void TextField::render(GLFWwindow* window) {
   glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
   _renderText(0.4, vec3<float>(0.129f, 0.129f, 0.129f), window);
-
   if (_Decorator != nullptr)
     _Decorator->render(window);
 }
@@ -197,7 +196,7 @@ void TextField::_renderText(float scale, vec3<float> color, GLFWwindow* window)
 
   // Перебираем все символы
   for (int i = 0; i < _text.size(); ++i) {
-    float x = (_pos.x + 1)* w/2, y = (_pos.y + 1)* h/2 + _size.y*h/2 - 20*(i+1);
+    float x = (_pos.x + 1)* w/2, y = (_pos.y + 1)* h/2 + _size.y*h/2 - 20 * (i + 1);
     std::string::const_iterator c;
     for (c = (*_text[i]).begin(); c != (*_text[i]).end(); c++)
     {
@@ -233,7 +232,7 @@ void TextField::_renderText(float scale, vec3<float> color, GLFWwindow* window)
 
       // Теперь производим смещение для отображения следующего глифа (обратите внимание, что данное смещение измеряется в единицах, составляющих 1/64 пикселя)
       x += (ch.Advance >> 6) * scale; // побитовый сдвиг на 6, чтобы получить значение в пикселях (2^6 = 64)
-    }
+    }   
   }
   glBindVertexArray(0);
   glBindTexture(GL_TEXTURE_2D, 0);

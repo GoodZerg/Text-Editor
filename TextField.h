@@ -13,6 +13,7 @@ public:
   TextField(vec2<float> pos, vec2<float> size, std::vector<std::string*>& str, WidgetComponent* Decorator = nullptr);
   void render(GLFWwindow* window);
   std::vector<std::string*> _text;
+  void rec();
   int shaderProgramText;
 private:
   std::map<char, Character> _Characters;

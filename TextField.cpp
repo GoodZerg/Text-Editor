@@ -150,9 +150,31 @@ TextField::TextField(vec2<float> pos, vec2<float> size, std::vector<std::string*
 }
 
 void TextField::render(GLFWwindow* window) {
+
+  int vertexColorLocation = glGetUniformLocation(__shaderProgram, "Color");
+  glUseProgram(__shaderProgram);
+  glUniform4f(vertexColorLocation, 0, 0, 0, 1.0f);
+  glBindVertexArray(_VAO);
+  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
   _renderText(0.4, vec3<float>(0.5, 0.8f, 0.2f), window);
   if (_Decorator != nullptr)
     _Decorator->render(window);
+}
+
+void TextField::rec() {
+  for (int i = 0; i < _text.size(); ++i) {
+    if (_text[i]->size() > 17) {
+      if (i + 1 < _text.size()) {
+        _text[i + 1]->insert(0, _text[i]->substr(17));
+        _text[i]->erase(17);
+      }
+      else {
+        _text.push_back(new std::string(_text[i]->substr(17)));
+        _text[i]->erase(17);
+      }
+    }
+  }
 }
 
 void TextField::_renderText(float scale, vec3<float> color, GLFWwindow* window)
@@ -167,44 +189,45 @@ void TextField::_renderText(float scale, vec3<float> color, GLFWwindow* window)
   glActiveTexture(GL_TEXTURE0);
   glBindVertexArray(VAO_);
 
-  float x = (_pos.x + 1)* w/2, y = (_pos.y + 1)* h/2;
-
   // Перебираем все символы
-  std::string::const_iterator c;
-  for (c = (*_text[0]).begin(); c != (*_text[0]).end(); c++)
-  {
-    Character ch = _Characters[*c];
+  for (int i = 0; i < _text.size(); ++i) {
+    float x = (_pos.x + 1)* w/2, y = (_pos.y + 1)* h/2 + _size.y*h/2 - 20*(i+1);
+    std::string::const_iterator c;
+    for (c = (*_text[i]).begin(); c != (*_text[i]).end(); c++)
+    {
+      Character ch = _Characters[*c];
 
-    float xpos = x + ch.Bearing.x * scale;
-    float ypos = y - (ch.Size.y - ch.Bearing.y) * scale;
+      float xpos = x + ch.Bearing.x * scale;
+      float ypos = y - (ch.Size.y - ch.Bearing.y) * scale;
 
-    float w = ch.Size.x * scale;
-    float h = ch.Size.y * scale;
+      float w = ch.Size.x * scale;
+      float h = ch.Size.y * scale;
 
-    // Обновляем VBO для каждого символа
-    float vertices[6][4] = {
-        { xpos, ypos + h, 0.0f, 0.0f },
-        { xpos, ypos, 0.0f, 1.0f },
-        { xpos + w, ypos, 1.0f, 1.0f },
+      // Обновляем VBO для каждого символа
+      float vertices[6][4] = {
+          { xpos, ypos + h, 0.0f, 0.0f },
+          { xpos, ypos, 0.0f, 1.0f },
+          { xpos + w, ypos, 1.0f, 1.0f },
 
-        { xpos, ypos + h, 0.0f, 0.0f },
-        { xpos + w, ypos, 1.0f, 1.0f },
-        { xpos + w, ypos + h, 1.0f, 0.0f }
-    };
+          { xpos, ypos + h, 0.0f, 0.0f },
+          { xpos + w, ypos, 1.0f, 1.0f },
+          { xpos + w, ypos + h, 1.0f, 0.0f }
+      };
 
-    // Визуализируем текстуру глифа поверх прямоугольника
-    glBindTexture(GL_TEXTURE_2D, ch.TextureID);
+      // Визуализируем текстуру глифа поверх прямоугольника
+      glBindTexture(GL_TEXTURE_2D, ch.TextureID);
 
-    // Обновляем содержимое памяти VBO
-    glBindBuffer(GL_ARRAY_BUFFER, VBO_);
-    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
+      // Обновляем содержимое памяти VBO
+      glBindBuffer(GL_ARRAY_BUFFER, VBO_);
+      glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+      glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-    // Рендерим прямоугольник
-    glDrawArrays(GL_TRIANGLES, 0, 6);
+      // Рендерим прямоугольник
+      glDrawArrays(GL_TRIANGLES, 0, 6);
 
-    // Теперь производим смещение для отображения следующего глифа (обратите внимание, что данное смещение измеряется в единицах, составляющих 1/64 пикселя)
-    x += (ch.Advance >> 6) * scale; // побитовый сдвиг на 6, чтобы получить значение в пикселях (2^6 = 64)
+      // Теперь производим смещение для отображения следующего глифа (обратите внимание, что данное смещение измеряется в единицах, составляющих 1/64 пикселя)
+      x += (ch.Advance >> 6) * scale; // побитовый сдвиг на 6, чтобы получить значение в пикселях (2^6 = 64)
+    }
   }
   glBindVertexArray(0);
   glBindTexture(GL_TEXTURE_2D, 0);

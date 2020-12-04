@@ -14,8 +14,16 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     glfwSetWindowShouldClose(window, true);
     glfwDestroyWindow(window);
   }
-  if (key >= 32 && key <= 126 && wd->getInput().IsInputing) {
-    wd->getInput().Input->_text[0]->push_back(key);
+  if (key >= 32 && key <= 126 && wd->getInput().IsInputing && action == GLFW_PRESS) {
+    //wd->getInput().Input->_text[0]->push_back(key);
+    wd->getInput().Input->_text[wd->getInput().Input->_text.size() - 1]->push_back(key);
+    wd->getInput().Input->rec();
+  }
+  if (wd->getInput().IsInputing && action == GLFW_PRESS && key == GLFW_KEY_BACKSPACE) {
+    if (wd->getInput().Input->_text[0]->size() > 0) {
+      wd->getInput().Input->_text[0]->pop_back();
+      wd->getInput().Input->rec();
+    }
   }
 }
 

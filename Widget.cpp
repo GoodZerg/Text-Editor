@@ -80,7 +80,7 @@ void Widget::render(GLFWwindow* window)
 
 
     // Рендеринг
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClearColor(0.819f, 0.768f, 0.913f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 
     for (auto& a : *_components) {

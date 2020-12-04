@@ -153,11 +153,12 @@ void TextField::render(GLFWwindow* window) {
 
   int vertexColorLocation = glGetUniformLocation(__shaderProgram, "Color");
   glUseProgram(__shaderProgram);
-  glUniform4f(vertexColorLocation, 0, 0, 0, 1.0f);
+  glUniform4f(vertexColorLocation, 0.403f, 0.227f, 0.717f, 1.0f);
   glBindVertexArray(_VAO);
   glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-  _renderText(0.4, vec3<float>(0.5, 0.8f, 0.2f), window);
+  _renderText(0.4, vec3<float>(0.129f, 0.129f, 0.129f), window);
+
   if (_Decorator != nullptr)
     _Decorator->render(window);
 }
@@ -175,6 +176,11 @@ void TextField::rec() {
       }
     }
   }
+}
+
+void TextField::dec(GLFWwindow* window)
+{
+  _renderText(0.4, vec3<float>(0.129f, 0.129f, 0.129f), window);
 }
 
 void TextField::_renderText(float scale, vec3<float> color, GLFWwindow* window)

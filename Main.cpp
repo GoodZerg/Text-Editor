@@ -12,10 +12,11 @@ int main() {
   vec2<float> vec3 = { 0.5, 0.5 };
   vec2<float> vec4 = { -0.5, -0.5 };
   std::vector<std::string*> str = { new std::string("123"), new std::string("234") };
+  std::vector<std::string*> str2 = { new std::string("Button")};
   std::vector<WidgetComponent*> a;
   Widget test(size, "123", &a);
   a.push_back(new TextBox(vec1, vec3, str));
-  a.push_back(new Button(vec4, vec3, FuncOne));
+  a.push_back(new Button(vec4, vec3, FuncOne, new TextField(vec4, vec3, str2)));
   test.render();
   glfwTerminate();
   return 0;

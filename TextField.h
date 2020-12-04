@@ -14,6 +14,7 @@ public:
   void render(GLFWwindow* window);
   std::vector<std::string*> _text;
   void rec();
+  void dec(GLFWwindow* window);
   int shaderProgramText;
 private:
   std::map<char, Character> _Characters;

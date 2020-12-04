@@ -74,7 +74,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>C:\Users\Nik\source\repos\Text Editor\GL\GLFW\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\GL\GLFW\lib-vc2019;C:\Users\Nik\source\repos\Text Editor\GL\GLFW\lib-vc2019;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>

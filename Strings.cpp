@@ -3,7 +3,7 @@
 // inserts
 void func::Insert(std::string s, int pos, std::vector<std::string*>& main_array) {
   if (pos == -1) pos = 0;
-  if (pos >= main_array.size()) main_array.resize(pos, new std::string("$"));
+  if (pos >= main_array.size()) main_array.resize(pos, new std::string("*"));
   main_array.insert(main_array.begin() + pos, new std::string(s));
   return;
 }

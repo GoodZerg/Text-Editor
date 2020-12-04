@@ -38,12 +38,24 @@ void FuncOne(GLFWwindow* window) {
   test.render();
 
   std::vector<std::string> strings;
-  strings.push_back(*(dynamic_cast<TextBox*>(a[0])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[1])->_text[0]));
+  std::string tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[0])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[0])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[1])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[1])->_text[i]);
+  }
+  strings.push_back(tmp);
   std::string::size_type sz;
   int pos = std::stoi(strings[1], &sz);
   func::Insert(strings[0], pos, main_array);
   dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text = main_array;
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->rec();
+  *dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text[0] = s;
 }
 
 void FuncTwo(GLFWwindow* window) {
@@ -68,11 +80,21 @@ void FuncTwo(GLFWwindow* window) {
   test.render();
   glfwTerminate();
   std::vector<std::string> strings;
-  strings.push_back(*(dynamic_cast<TextBox*>(a[0])->_text[0]));
+  std::string tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[0])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[0])->_text[i]);
+  }
+  strings.push_back(tmp);
   std::string::size_type sz;
   int pos = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   func::InsertMany(strings, pos, main_array);
+  for (int i = 0; i < main_array.size(); ++i) {
+    std::cout << "----------" << *main_array[i] << "\n";
+  }
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text = main_array;
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->rec();
 }
 
 void FuncThree(GLFWwindow* window) {
@@ -93,10 +115,17 @@ void FuncThree(GLFWwindow* window) {
   test.render();
   glfwTerminate();
   std::vector<std::string> strings;
-
+  std::string tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[0])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[0])->_text[i]);
+  }
+  strings.push_back(tmp);
   std::string::size_type sz;
   int pos = std::stoi(strings[0], &sz);
   func::Delete(pos, main_array);
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text = main_array;
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->rec();
 }
 
 void FuncFour(GLFWwindow* window) {
@@ -123,15 +152,32 @@ void FuncFour(GLFWwindow* window) {
   test.render();
   glfwTerminate();
   std::vector<std::string> strings;
-  strings.push_back(*(dynamic_cast<TextBox*>(a[0])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[1])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[2])->_text[0]));
+  std::string tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[0])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[0])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[1])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[1])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[2])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[2])->_text[i]);
+  }
+  strings.push_back(tmp);
   std::string::size_type sz;
   int pos = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   int num_str = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   func::InsertSubstring(strings[0], num_str, pos, main_array);
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text = main_array;
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->rec();
 
 }
 
@@ -160,14 +206,31 @@ void FuncFive(GLFWwindow* window) {
   glfwTerminate();
   std::vector<std::string> strings;
   std::string::size_type sz;
-  strings.push_back(*(dynamic_cast<TextBox*>(a[0])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[1])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[2])->_text[0]));
+  std::string tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[0])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[0])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[1])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[1])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[2])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[2])->_text[i]);
+  }
+  strings.push_back(tmp);
   int pos = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   int num_str = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   func::SymbolReplace(strings[0][0], pos, num_str, main_array);
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text = main_array;
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->rec();
 
 }
 
@@ -199,16 +262,38 @@ void FuncSix(GLFWwindow* window) {
   test.render();
   glfwTerminate();
   std::vector<std::string> strings;
-  strings.push_back(*(dynamic_cast<TextBox*>(a[0])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[1])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[2])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[3])->_text[0]));
+  std::string tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[0])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[0])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[1])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[1])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[2])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[2])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[3])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[3])->_text[i]);
+  }
+  strings.push_back(tmp);
   std::string::size_type sz;
   int stop = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   int start = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   func::ReplaceSubstring(strings[0], strings[1], start, stop, main_array);
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text = main_array;
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->rec();
 }
 
 void FuncSeven(GLFWwindow* window) {
@@ -232,14 +317,26 @@ void FuncSeven(GLFWwindow* window) {
   test.render();
   glfwTerminate();
   std::vector<std::string> strings;
-  strings.push_back(*(dynamic_cast<TextBox*>(a[0])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[1])->_text[0]));
+  std::string tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[0])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[0])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[1])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[1])->_text[i]);
+  }
+  strings.push_back(tmp);
   std::string::size_type sz;
   int stop = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   int start = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
-  func::RemoveZeroes(start, stop, main_array);
+  func::RemoveZeroes(start, stop, main_array);  
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text = main_array;
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->rec();
 }
 
 void FuncEight(GLFWwindow* window) {
@@ -264,14 +361,26 @@ void FuncEight(GLFWwindow* window) {
   test.render();
   glfwTerminate();
   std::vector<std::string> strings;
-  strings.push_back(*(dynamic_cast<TextBox*>(a[0])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[1])->_text[0]));
+  std::string tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[0])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[0])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[1])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[1])->_text[i]);
+  }
+  strings.push_back(tmp);
   std::string::size_type sz;
   int stop = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   int start = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   func::RemoveAsterisks(start, stop, main_array);
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text = main_array;
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->rec();
 }
 
 void FuncNine(GLFWwindow* window) {
@@ -297,14 +406,26 @@ void FuncNine(GLFWwindow* window) {
   test.render();
   glfwTerminate();
   std::vector<std::string> strings;
-  strings.push_back(*(dynamic_cast<TextBox*>(a[0])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[1])->_text[0]));
+  std::string tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[0])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[0])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[1])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[1])->_text[i]);
+  }
+  strings.push_back(tmp);
   std::string::size_type sz;
   int stop = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   int start = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   func::RemoveBracketsContent(start, stop, main_array);
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text = main_array;
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->rec();
 }
 
 void FuncTen(GLFWwindow* window) {
@@ -329,12 +450,24 @@ void FuncTen(GLFWwindow* window) {
   test.render();
   glfwTerminate();
   std::vector<std::string> strings;
-  strings.push_back(*(dynamic_cast<TextBox*>(a[0])->_text[0]));
-  strings.push_back(*(dynamic_cast<TextBox*>(a[1])->_text[0]));
+  std::string tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[0])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[0])->_text[i]);
+  }
+  strings.push_back(tmp);
+  tmp = "";
+  for (size_t i = 0; i < dynamic_cast<TextBox*>(a[1])->_text.size(); i++)
+  {
+    tmp.append(*dynamic_cast<TextBox*>(a[1])->_text[i]);
+  }
+  strings.push_back(tmp);
   std::string::size_type sz;
   int stop = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   int start = std::stoi(strings[strings.size() - 1], &sz);
   strings.erase(strings.end() - 1);
   func::RemoveDigitsWithIncreasingValues(start, stop, main_array);
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->_text = main_array;
+  dynamic_cast<TextField*>((*static_cast<Widget*>(glfwGetWindowUserPointer(window))->getWidgetComponent())[0])->rec();
 }

@@ -17,8 +17,8 @@ public:
   InputStruct getInput();
   void wclicked(int button, int action, int mods);
   std::vector<WidgetComponent*>* getWidgetComponent();
-private:
   GLFWwindow* _window = nullptr;
+private:
   static InputStruct GLBoxInput;
   std::string _name_window = "";
   vec2<unsigned int> _size = { 800, 600 };

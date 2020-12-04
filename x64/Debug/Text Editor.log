@@ -1,172 +1,172 @@
 ﻿  Main.cpp
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(28,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(28,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(29,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(29,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(58,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(70,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(59,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(71,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(83,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(105,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(84,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(106,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(107,36): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(136,36): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(108,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(137,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(143,36): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(189,36): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(144,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(190,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(176,31): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(239,31): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(177,32): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(240,32): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(178,32): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(241,32): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(179,37): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(242,37): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(180,34): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(243,34): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(181,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(244,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(182,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(245,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(219,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(304,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(220,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(305,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(250,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(347,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(251,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(348,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(282,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(391,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(283,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(392,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(315,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(436,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\ButtonsDynamic.h(316,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\ButtonsDynamic.h(437,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\Main.cpp(12,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Main.cpp(12,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\Main.cpp(13,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Main.cpp(13,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\Main.cpp(14,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Main.cpp(14,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\Main.cpp(15,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Main.cpp(15,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\Main.cpp(16,33): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Main.cpp(16,33): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\Main.cpp(18,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Main.cpp(18,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\Main.cpp(19,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Main.cpp(19,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\Main.cpp(20,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Main.cpp(20,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-C:\Users\Nik\source\repos\Text Editor\Main.cpp(21,35): warning C4305: аргумент: усечение из "double" в "T"
+C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\Main.cpp(21,35): warning C4305: аргумент: усечение из "double" в "T"
           with
           [
               T=float
           ]
-  Text Editor.vcxproj -> C:\Users\Nik\source\repos\Text Editor\x64\Debug\Text Editor.exe
+  Text Editor.vcxproj -> C:\Users\frela\OneDrive\Документы\GitHub\Text-Editor\x64\Debug\Text Editor.exe

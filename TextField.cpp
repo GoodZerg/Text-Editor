@@ -157,6 +157,11 @@ void TextField::render(GLFWwindow* window) {
   glBindVertexArray(_VAO);
   glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
+ // for (size_t i = 0; i < _text.size(); i++)
+ // {
+ //   std::cout << *_text[i] << "\n";
+ // }
+ //
   _renderText(0.4, vec3<float>(0.129f, 0.129f, 0.129f), window);
   if (_Decorator != nullptr)
     _Decorator->render(window);
@@ -198,7 +203,9 @@ void TextField::_renderText(float scale, vec3<float> color, GLFWwindow* window)
   for (int i = 0; i < _text.size(); ++i) {
     float x = (_pos.x + 1)* w/2, y = (_pos.y + 1)* h/2 + _size.y*h/2 - 20 * (i + 1);
     std::string::const_iterator c;
-    for (c = (*_text[i]).begin(); c != (*_text[i]).end(); c++)
+    auto str = *_text[i];
+    std::cout << str << "\n";
+    for (c = str.begin(); c < str.end(); c++)
     {
       Character ch = _Characters[*c];
 

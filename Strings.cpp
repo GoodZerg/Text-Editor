@@ -1,16 +1,16 @@
 #include "Strings.h"
 
-void func::Insert(std::string s, int pos) {
+void func::Insert(std::string s, int pos, std::vector<std::string*>& main_array) {
   if (pos == -1) {
     pos = 0;
   }
   if (pos >= main_array.size()) {
     main_array.resize(pos, new std::string("1"));
   }
-  main_array.insert(main_array.begin() + pos - 1, new std::string(s));
+  main_array.insert(main_array.begin() + pos, new std::string(s));
 }
 
-void func::InsertMany(std::vector<std::string> s, int pos) {
+void func::InsertMany(std::vector<std::string> s, int pos, std::vector<std::string*>& main_array) {
   if (pos >= main_array.size()) {
     main_array.resize(pos, new std::string("1"));
     for (int i = 0; i < s.size(); ++i) {
@@ -24,19 +24,19 @@ void func::InsertMany(std::vector<std::string> s, int pos) {
   }
 }
 
-void func::Delete(int pos) {
+void func::Delete(int pos, std::vector<std::string*>& main_array) {
   main_array.erase(main_array.begin() + pos);
 }
 
-void func::InsertSubstring(std::string s, int num_str, int pos) {
+void func::InsertSubstring(std::string s, int num_str, int pos, std::vector<std::string*>& main_array) {
   main_array[num_str]->insert(pos, s);
 }
 
-void func::SymbolReplace(char symbol, int pos, int num_str) {
+void func::SymbolReplace(char symbol, int pos, int num_str, std::vector<std::string*>& main_array) {
   (*main_array[num_str])[pos] = symbol;
 }
 
-void func::ReplaceSubstring(std::string old_str, std::string new_str, int str_start, int str_stop) {
+void func::ReplaceSubstring(std::string old_str, std::string new_str, int str_start, int str_stop, std::vector<std::string*>& main_array) {
   if (str_stop == -1) {
     str_stop = main_array.size() - 1;
   }
@@ -49,7 +49,7 @@ void func::ReplaceSubstring(std::string old_str, std::string new_str, int str_st
   }
 }
 
-void func::RemoveZeroes(int str_start, int str_stop) {
+void func::RemoveZeroes(int str_start, int str_stop, std::vector<std::string*>& main_array) {
   if (str_stop == -1) {
     str_stop = main_array.size();
   }
@@ -71,7 +71,7 @@ void func::RemoveZeroes(int str_start, int str_stop) {
   }
 }
 
-void func::RemoveAsterisks(int begin_index, int end_index) {
+void func::RemoveAsterisks(int begin_index, int end_index, std::vector<std::string*>& main_array) {
   if (end_index == -1) end_index = main_array.size();
   else --end_index;
   --begin_index;
@@ -94,7 +94,7 @@ void func::RemoveAsterisks(int begin_index, int end_index) {
   }
 }
 
-void func::RemoveBracketsContent(int begin_index, int end_index) {
+void func::RemoveBracketsContent(int begin_index, int end_index, std::vector<std::string*>& main_array) {
   if (end_index == -1) end_index = main_array.size();
   else--end_index;
   --begin_index;
@@ -112,7 +112,7 @@ void func::RemoveBracketsContent(int begin_index, int end_index) {
   return;
 }
 
-void func::RemoveDigitsWithIncreasingValues(int begin_index, int end_index) {
+void func::RemoveDigitsWithIncreasingValues(int begin_index, int end_index, std::vector<std::string*>& main_array) {
   if (end_index == -1) end_index = main_array.size();
   else --end_index;
   --begin_index;

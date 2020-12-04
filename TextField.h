@@ -10,9 +10,9 @@ class TextField :
    public WidgetComponent
 {
 public:
-  TextField(vec2<float> pos, vec2<float> size, std::string& str, WidgetComponent* Decorator = nullptr);
+  TextField(vec2<float> pos, vec2<float> size, std::vector<std::string*>& str, WidgetComponent* Decorator = nullptr);
   void render(GLFWwindow* window);
-  std::string _text = "";
+  std::vector<std::string*> _text;
   int shaderProgramText;
 private:
   std::map<char, Character> _Characters;

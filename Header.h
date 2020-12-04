@@ -12,8 +12,6 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
-static std::vector<std::string*> main_array;
-
 
 template <typename T>
 struct vec2 {

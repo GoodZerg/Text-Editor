@@ -1,6 +1,6 @@
 #include "TextField.h"
 
-TextField::TextField(vec2<float> pos, vec2<float> size, std::string& str, WidgetComponent* Decorator)
+TextField::TextField(vec2<float> pos, vec2<float> size, std::vector<std::string*>& str, WidgetComponent* Decorator)
   : WidgetComponent(pos, size, Decorator)
 {
   this->_text = str;
@@ -171,7 +171,7 @@ void TextField::_renderText(float scale, vec3<float> color, GLFWwindow* window)
 
   // Перебираем все символы
   std::string::const_iterator c;
-  for (c = _text.begin(); c != _text.end(); c++)
+  for (c = (*_text[0]).begin(); c != (*_text[0]).end(); c++)
   {
     Character ch = _Characters[*c];
 

@@ -9,9 +9,13 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
+  auto wd = static_cast<Widget*>(glfwGetWindowUserPointer(window));
   if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) {
     glfwSetWindowShouldClose(window, true);
     glfwDestroyWindow(window);
+  }
+  if (key >= 32 && key <= 126 && wd->getInput().IsInputing) {
+    wd->getInput().Input->_text[0]->push_back(key);
   }
 }
 
@@ -87,6 +91,11 @@ vec2<unsigned int> Widget::getSize()
   return _size;
 }
 
+InputStruct Widget::getInput()
+{
+  return GLBoxInput;
+}
+
 void Widget::_error(std::string error)
 {
   std::cout << error;
@@ -139,4 +148,9 @@ void Widget::wclicked(int button, int action, int mods)
       }
     }
   }
+}
+
+std::vector<WidgetComponent*>* Widget::getWidgetComponent()
+{
+  return _components;
 }

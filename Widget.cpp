@@ -75,9 +75,6 @@ void Widget::render(GLFWwindow* window)
 {
   while (!glfwWindowShouldClose(_window))
   {
-    // Обработка ввода
-    // optimization++               glfwWaitEvents();
-
 
     // Рендеринг
     glClearColor(0.819f, 0.768f, 0.913f, 1.0f);

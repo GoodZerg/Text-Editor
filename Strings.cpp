@@ -39,9 +39,14 @@ void func::SymbolReplace(char ch, int str_pos, int char_pos, std::vector<std::st
   return;
 }
 void func::ReplaceSubstring(std::string old_str, std::string new_str, int begin_index, int end_index, std::vector<std::string*>& main_array) {
-  if (end_index == -1) end_index = main_array.size();
-  else --end_index;
-  --begin_index;
+  if (end_index == -1) {
+    begin_index = 0;
+    end_index = main_array.size();
+  }
+  else {
+    --end_index;
+    --begin_index;
+  }
   for (int i = begin_index; i < end_index; ++i) {
     size_t pos = main_array[i]->find(old_str);
     while (pos != std::string::npos) {
@@ -54,10 +59,15 @@ void func::ReplaceSubstring(std::string old_str, std::string new_str, int begin_
 
 // algorithmic
 void func::RemoveZeroes(int begin_index, int end_index, std::vector<std::string*>& main_array) {
-  if (end_index == -1) end_index = main_array.size();
-  else --end_index;
-  --begin_index;
-  for (int i = begin_index; i < end_index; ++i) {
+  if (end_index == -1) {
+    begin_index = 0;
+    end_index = main_array.size();
+  }
+  else {
+    --end_index;
+    --begin_index;
+  }
+  for (int i = begin_index; i <= end_index; ++i) {
     for (int index = 0; index < main_array[i]->size() - 1; ++index) {
       if ((*main_array[i])[index] == '0') {
         if (std::string("0123456789").find((*main_array[i])[index + 1]) != -1) {
@@ -76,10 +86,15 @@ void func::RemoveZeroes(int begin_index, int end_index, std::vector<std::string*
   return;
 }
 void func::RemoveAsterisks(int begin_index, int end_index, std::vector<std::string*>& main_array) {
-  if (end_index == -1) end_index = main_array.size();
-  else --end_index;
-  --begin_index;
-  for (int i = begin_index; i < end_index; ++i) {
+  if (end_index == -1) {
+    begin_index = 0;
+    end_index = main_array.size();
+  }
+  else {
+    --end_index;
+    --begin_index;
+  }
+  for (int i = begin_index; i <= end_index; ++i) {
     *main_array[i] += "6";
     for (int j = 0; j < main_array[i]->size(); ++j) {
       if (main_array[i]->at(j) == '*') {
@@ -99,11 +114,16 @@ void func::RemoveAsterisks(int begin_index, int end_index, std::vector<std::stri
   return;
 }
 void func::RemoveBracketsContent(int begin_index, int end_index, std::vector<std::string*>& main_array) {
-  if (end_index == -1) end_index = main_array.size();
-  else--end_index;
-  --begin_index;
+  if (end_index == -1) {
+    begin_index = 0;
+    end_index = main_array.size();
+  }
+  else {
+    --end_index;
+    --begin_index;
+  }
   for (auto i = main_array.begin() + begin_index;
-    i < main_array.begin() + end_index; ++i) {
+    i <= main_array.begin() + end_index; ++i) {
     *(*i) += "6";
     for (auto j = (*i)->begin(); j < (*i)->end(); ++j) {
       if (*j == '{') {
@@ -116,9 +136,14 @@ void func::RemoveBracketsContent(int begin_index, int end_index, std::vector<std
   return;
 }
 void func::RemoveDigitsWithIncreasingValues(int begin_index, int end_index, std::vector<std::string*>& main_array) {
-  if (end_index == -1) end_index = main_array.size();
-  else --end_index;
-  --begin_index;
+  if (end_index == -1) {
+    begin_index = 0;
+    end_index = main_array.size();
+  }
+  else {
+    --end_index;
+    --begin_index;
+  }
   for (auto i = main_array.begin() + begin_index; i < main_array.begin() + end_index;
     ++i) {
     *(*i) += "f";

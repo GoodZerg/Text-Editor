@@ -33,7 +33,7 @@ int main() {
   std::string str7 = "RemoveZeroes";
   std::string str8 = "RemoveAsterisks";
   std::string str9 = "RemoveBracketsContent";
-  std::string str10 = "RemoveDigitsWithIncreasingValues";
+  std::string str10 = "RemoveDigitsWithIncreas";
   a.push_back(new TextField(vec1, textfield_size, *(new std::vector <std::string*>{ &str, &strr })));
   a.push_back(new Button(vec4, vec5, FuncOne, new TextField(vec4, vec5, *(new std::vector <std::string*>{ &str1 }))));
   a.push_back(new Button(vec6, vec5, FuncTwo, new TextField(vec6, vec5, *(new std::vector <std::string*>{ &str2 }))));

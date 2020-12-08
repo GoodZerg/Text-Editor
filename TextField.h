@@ -20,6 +20,7 @@ private:
   std::map<char, Character> _Characters;
   unsigned int VAO_, VBO_;
   void _renderText(float scale, vec3<float> color, GLFWwindow* window);
+  void __renderText(std::string text, float x, float y, float scale, vec3<float> color, GLFWwindow* window);
 };
 
 

@@ -143,25 +143,30 @@ TextField::TextField(vec2<float> pos, vec2<float> size, std::vector<std::string*
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   glBindVertexArray(0);
 
-
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 }
 
 void TextField::render(GLFWwindow* window) {
-
   int vertexColorLocation = glGetUniformLocation(__shaderProgram, "Color");
   glUseProgram(__shaderProgram);
   glUniform4f(vertexColorLocation, 0.403f, 0.227f, 0.717f, 1.0f);
   glBindVertexArray(_VAO);
   glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
+  glBindVertexArray(0);
+  glUseProgram(0);
  // for (size_t i = 0; i < _text.size(); i++)
  // {
  //   std::cout << *_text[i] << "\n";
  // }
  //
+  int w = 0, h = 0;
+  glfwGetWindowSize(window, &w, &h);
+  glUseProgram(shaderProgramText);
+  glUniformMatrix4fv(glGetUniformLocation(shaderProgramText, "projection"), 1, GL_FALSE,
+    glm::value_ptr(glm::ortho(0.0f, static_cast<float>(w),
+      0.0f, static_cast<float>(h))));
   _renderText(0.4, vec3<float>(0.129f, 0.129f, 0.129f), window);
   if (_Decorator != nullptr)
     _Decorator->render(window);
@@ -199,9 +204,8 @@ void TextField::_renderText(float scale, vec3<float> color, GLFWwindow* window)
   glActiveTexture(GL_TEXTURE0);
   glBindVertexArray(VAO_);
 
-  // Перебираем все символы
   for (int i = 0; i < _text.size(); ++i) {
-    float x = (_pos.x + 1)* w/2, y = (_pos.y + 1)* h/2 + _size.y*h/2 - 20 * (i + 1);
+    float x = (_pos.x + 1) * w / 2, y = (_pos.y + 1) * h / 2 + _size.y * h / 2 - 20 * (i + 1);
     std::string::const_iterator c;
     auto str = *_text[i];
     std::cout << str << "\n";
@@ -215,7 +219,6 @@ void TextField::_renderText(float scale, vec3<float> color, GLFWwindow* window)
       float w = ch.Size.x * scale;
       float h = ch.Size.y * scale;
 
-      // Обновляем VBO для каждого символа
       float vertices[6][4] = {
           { xpos, ypos + h, 0.0f, 0.0f },
           { xpos, ypos, 0.0f, 1.0f },
@@ -226,20 +229,63 @@ void TextField::_renderText(float scale, vec3<float> color, GLFWwindow* window)
           { xpos + w, ypos + h, 1.0f, 0.0f }
       };
 
-      // Визуализируем текстуру глифа поверх прямоугольника
       glBindTexture(GL_TEXTURE_2D, ch.TextureID);
 
-      // Обновляем содержимое памяти VBO
       glBindBuffer(GL_ARRAY_BUFFER, VBO_);
       glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
       glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-      // Рендерим прямоугольник
       glDrawArrays(GL_TRIANGLES, 0, 6);
 
-      // Теперь производим смещение для отображения следующего глифа (обратите внимание, что данное смещение измеряется в единицах, составляющих 1/64 пикселя)
-      x += (ch.Advance >> 6) * scale; // побитовый сдвиг на 6, чтобы получить значение в пикселях (2^6 = 64)
-    }   
+      x += (ch.Advance >> 6) * scale; 
+    }
+  }
+  glBindVertexArray(0);
+  glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+
+void TextField::__renderText(std::string text, float x, float y, float scale, vec3<float> color, GLFWwindow* window)
+{
+
+  std::cout << text << "\n";
+
+  glUseProgram(shaderProgramText);
+  glUniform3f(glGetUniformLocation(shaderProgramText, "textColor"), color.x, color.y, color.z);
+  glActiveTexture(GL_TEXTURE0);
+  glBindVertexArray(VAO_);
+
+  // перебираем все символы
+  std::string::const_iterator c;
+  for (c = text.begin(); c != text.end(); c++)
+  {
+    Character ch = _Characters[*c];
+
+    float xpos = x + ch.Bearing.x * scale;
+    float ypos = y - (ch.Size.y - ch.Bearing.y) * scale;
+
+    float w = ch.Size.x * scale;
+    float h = ch.Size.y * scale;
+    // обновляем VBO для каждого символа
+    float vertices[6][4] = {
+        { xpos,     ypos + h,   0.0f, 0.0f },
+        { xpos,     ypos,       0.0f, 1.0f },
+        { xpos + w, ypos,       1.0f, 1.0f },
+
+        { xpos,     ypos + h,   0.0f, 0.0f },
+        { xpos + w, ypos,       1.0f, 1.0f },
+        { xpos + w, ypos + h,   1.0f, 0.0f }
+    };
+    // рендер текстуру глифа на прямоугольник
+    glBindTexture(GL_TEXTURE_2D, ch.TextureID);
+    // обновляем содержимое памяти VBO
+    glBindBuffer(GL_ARRAY_BUFFER, VBO_);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices); // обязательно используйте glBufferSubData, а не glBufferData
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    // рендер прямоугольника
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    // теперь производим смещение для отображения следующего глифа (обратите внимание, что данное смещение измеряется в единицах, составляющих 1/64 пикселя)
+    x += (ch.Advance >> 6) * scale; // битовый сдвиг на 6 разрядов, чтобы получить значение в пикселях (2^6 = 64 (разделите количество 1/64-х пикселей на 64, чтобы получить количество пикселей))
   }
   glBindVertexArray(0);
   glBindTexture(GL_TEXTURE_2D, 0);
